@@ -1,0 +1,19 @@
+node_modules/
+lib/
+build/
+.gradle/
+Pods/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+.DS_Store
+local.properties
+*.jks
+*.keystore
+*.asc
+.idea/
+coverage/
+.expo/
+
+# The React Native template debug keystore is public and required by the debug build.
+!apps/tapsense/android/app/debug.keystore

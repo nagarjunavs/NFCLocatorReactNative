@@ -1,0 +1,24 @@
+name: Publish
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+  id-token: write   # npm provenance
+
+jobs:
+  npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, registry-url: 'https://registry.npmjs.org', cache: npm }
+      - run: npm ci
+      - name: Tag matches package version
+        run: test "v$(node -p "require('./packages/react-native-nfc-locator/package.json').version")" = "${GITHUB_REF_NAME}"
+      - run: npm run typecheck && npm run lint && npm test && npm run check:catalog
+      - run: npm publish --provenance --access public -w react-native-nfc-locator
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- TapSense mark: concentric rings around a solid dot, echoing the tap-zone pulse marker.
+         Kept within the ~66dp adaptive-icon safe zone (centered, outer ring radius 27). -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="@color/tapsense_aqua"
+        android:strokeWidth="4"
+        android:pathData="M81,54 A27,27 0 1,1 27,54 A27,27 0 1,1 81,54 Z" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="@color/tapsense_aqua"
+        android:strokeWidth="4"
+        android:pathData="M70,54 A16,16 0 1,1 38,54 A16,16 0 1,1 70,54 Z" />
+    <path
+        android:fillColor="@color/tapsense_aqua"
+        android:pathData="M60,54 A6,6 0 1,1 48,54 A6,6 0 1,1 60,54 Z" />
+</vector>

@@ -1,0 +1,97 @@
+{
+  "name": "react-native-nfc-locator",
+  "version": "0.1.0",
+  "description": "Shows where a phone's NFC antenna is, with an explicit confidence level. TypeScript resolver chain, React Native UI and a TurboModule for platform signals.",
+  "license": "MIT",
+  "author": "Nagarjuna VS",
+  "homepage": "https://github.com/nagarjunavs/NFCLocatorReactNative#readme",
+  "bugs": {
+    "url": "https://github.com/nagarjunavs/NFCLocatorReactNative/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nagarjunavs/NFCLocatorReactNative.git",
+    "directory": "packages/react-native-nfc-locator"
+  },
+  "keywords": [
+    "react-native",
+    "nfc",
+    "ios",
+    "android",
+    "turbomodule",
+    "antenna"
+  ],
+  "main": "lib/commonjs/index.js",
+  "types": "lib/typescript/index.d.ts",
+  "react-native": "src/index.ts",
+  "source": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "src",
+    "lib",
+    "android",
+    "!android/build",
+    "!android/.gradle",
+    "!android/.cxx",
+    "!android/src/test",
+    "ios",
+    "assets",
+    "app.plugin.js",
+    "plugin",
+    "*.podspec",
+    "!**/__tests__",
+    "!**/*.test.*"
+  ],
+  "scripts": {
+    "build": "rm -rf lib && babel src --out-dir lib/commonjs --extensions .ts,.tsx --source-maps false && tsc -p tsconfig.build.json",
+    "prepack": "npm run build",
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "lint": "eslint src __tests__"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "peerDependencies": {
+    "@react-native-async-storage/async-storage": ">=2.0.0",
+    "react": ">=19.0.0",
+    "react-native": ">=0.82.0",
+    "react-native-svg": ">=15.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@react-native-async-storage/async-storage": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.29.7",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.3",
+    "@babel/runtime": "^7.25.0",
+    "@react-native/babel-preset": "0.87.1",
+    "@react-native/eslint-config": "0.87.1",
+    "@react-native/jest-preset": "0.87.1",
+    "@react-native/typescript-config": "0.87.1",
+    "@testing-library/react-native": "^14.0.1",
+    "@types/jest": "^29.5.13",
+    "@types/node": "^22.20.4",
+    "@types/react": "^19.2.0",
+    "eslint": "^8.19.0",
+    "jest": "^29.6.3",
+    "prettier": "2.8.8",
+    "react": "19.2.3",
+    "react-native": "0.87.1",
+    "react-native-svg": "^15.0.0",
+    "react-test-renderer": "19.2.3",
+    "typescript": "^6.0.3"
+  },
+  "codegenConfig": {
+    "name": "NfcLocatorSpec",
+    "type": "modules",
+    "jsSrcsDir": "src/native",
+    "android": {
+      "javaPackageName": "com.nfclocator.rn"
+    }
+  }
+}

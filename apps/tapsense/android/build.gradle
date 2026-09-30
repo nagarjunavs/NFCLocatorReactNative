@@ -1,0 +1,26 @@
+buildscript {
+    ext {
+        buildToolsVersion = "37.0.0"
+        minSdkVersion = 24
+        compileSdkVersion = 37
+        targetSdkVersion = 36
+        ndkVersion = "27.1.12297006"
+        kotlinVersion = "2.2.0"
+        // npm workspaces hoist react-native to the monorepo root. Libraries such as react-native-svg
+        // otherwise locate it by running `node` while Gradle configures, which fails whenever `node`
+        // is not on the PATH of the process running Gradle (Android Studio started from the Dock
+        // does not inherit nvm's PATH). Setting it explicitly removes that dependency.
+        REACT_NATIVE_NODE_MODULES_DIR = "$rootDir/../../../node_modules/react-native"
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle")
+        classpath("com.facebook.react:react-native-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+    }
+}
+
+apply plugin: "com.facebook.react.rootproject"

@@ -1,0 +1,24 @@
+{
+  "name": "nfc-locator-react-native",
+  "private": true,
+  "version": "0.0.0",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "check:seed": "node scripts/seed.mjs check",
+    "check:i18n": "node scripts/i18n.mjs check",
+    "check:catalog": "npm run check:seed && npm run check:i18n"
+  },
+  "engines": {
+    "node": ">= 22.11.0"
+  },
+  "overrides": {
+    "react": "19.2.3",
+    "react-test-renderer": "19.2.3"
+  }
+}

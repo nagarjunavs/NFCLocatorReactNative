@@ -1,0 +1,11 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:editTextBackground">@drawable/rn_edit_text_material</item>
+        <!-- First frame is the dark splash color, not white, before the JS splash paints. -->
+        <item name="android:windowBackground">@color/tapsense_splash_bg</item>
+    </style>
+
+</resources>

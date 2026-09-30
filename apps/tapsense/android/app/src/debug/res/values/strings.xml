@@ -1,0 +1,4 @@
+<resources>
+    <!-- Debug builds are labelled so they're never mistaken for the release build. -->
+    <string name="app_name">TapSense Debug</string>
+</resources>

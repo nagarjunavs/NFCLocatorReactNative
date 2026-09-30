@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Debug-only launcher icon foreground - overlays app/src/main/res/drawable/ic_launcher_foreground.xml
+  for the debug variant only (see ic_launcher_background.xml in this same directory for the
+  source-set precedence explanation). Same TapSense ring-and-dot mark and geometry as the release
+  icon, kept recognizable, but recolored dark (instead of aqua) for contrast against the debug-only
+  orange background, plus one small diamond "flag" badge at (74,74) - chosen because it sits well
+  inside the ~66dp-diameter guaranteed-safe-zone circle centered on (54,54) (distance ≈28.3dp,
+  under the 33dp safe radius), so it renders intact under every adaptive-icon mask shape (circle,
+  squircle, rounded square, teardrop) instead of risking inconsistent edge clipping.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#211F1C"
+        android:strokeWidth="4"
+        android:pathData="M81,54 A27,27 0 1,1 27,54 A27,27 0 1,1 81,54 Z" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#211F1C"
+        android:strokeWidth="4"
+        android:pathData="M70,54 A16,16 0 1,1 38,54 A16,16 0 1,1 70,54 Z" />
+    <path
+        android:fillColor="#211F1C"
+        android:pathData="M60,54 A6,6 0 1,1 48,54 A6,6 0 1,1 60,54 Z" />
+    <!-- Debug flag badge - not present in the release icon. -->
+    <path
+        android:fillColor="#211F1C"
+        android:pathData="M74,68 L80,74 L74,80 L68,74 Z" />
+</vector>

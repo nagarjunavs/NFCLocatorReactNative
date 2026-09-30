@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  js:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npm run check:catalog
+      - run: npm audit --omit=dev
+      - name: Package contents
+        working-directory: packages/react-native-nfc-locator
+        run: npm pack --dry-run
+
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 21 }
+      - run: npm ci
+      - name: Debug build, release bundle and native unit tests
+        working-directory: apps/tapsense/android
+        run: ./gradlew :app:assembleDebug :app:bundleRelease :react-native-nfc-locator:testDebugUnitTest -PreactNativeArchitectures=arm64-v8a
+
+  ios:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Pods
+        working-directory: apps/tapsense/ios
+        run: pod install
+      - name: Build for simulator
+        working-directory: apps/tapsense/ios
+        run: >
+          xcodebuild -workspace TapSense.xcworkspace -scheme TapSense -configuration Debug
+          -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
+
+      - name: Build for device (Release, unsigned)
+        working-directory: apps/tapsense/ios
+        run: >
+          xcodebuild -workspace TapSense.xcworkspace -scheme TapSense -configuration Release
+          -destination 'generic/platform=iOS' CODE_SIGNING_ALLOWED=NO build

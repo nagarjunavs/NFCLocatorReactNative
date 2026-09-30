@@ -1,0 +1,4 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Metro bundler / dev menu. Not present in release builds. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+</manifest>

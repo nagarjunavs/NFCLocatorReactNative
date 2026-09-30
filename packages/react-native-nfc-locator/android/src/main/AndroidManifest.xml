@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+      Required for every real NfcAdapter call this module makes (getNfcAntennaInfo(),
+      enableReaderMode()). Without it those calls throw SecurityException at the Binder
+      boundary, which callers would misreport as "NFC is off". Declared here (not left to the
+      host app) because this library is what makes the calls.
+    -->
+    <uses-permission android:name="android.permission.NFC" />
+    <!-- Declared but not required: hosts without NFC still get GENERIC/UNKNOWN guidance. -->
+    <uses-feature android:name="android.hardware.nfc" android:required="false" />
+</manifest>

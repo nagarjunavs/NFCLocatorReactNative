@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Debug-only launcher icon background (Gradle resource-merging precedence: this src/debug/res
+  file replaces app/src/main/res/drawable/ic_launcher_background.xml for the debug build variant
+  only - `debug` overlays `main`, never the reverse, so `assembleRelease`/`bundleRelease` still
+  resolve @drawable/ic_launcher_background to the original main/ version unchanged. Bold, solid
+  safety-orange in place of the release icon's dark charcoal - a background-color change survives
+  every adaptive-icon mask shape unmodified (unlike foreground content near the edges, which some
+  launchers clip differently), so it's the single most reliable "this is not the production icon"
+  signal at a glance. See CHECKLIST.md's "Debug builds are visually distinguishable" note.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FF6D00"
+        android:pathData="M0,0h108v108h-108z" />
+</vector>

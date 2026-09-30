@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Declares every locale this app ships translations for. Android 13+ uses this to power the
+  system per-app language picker (Settings > Apps > TapSense > Language).
+
+  IMPORTANT: android:name takes a BCP-47 tag ("pt-BR", "zh-CN"), NOT the "-r"-prefixed
+  resource-qualifier folder syntax ("pt-rBR") used for values-<lang>-r<REGION>/ folders.
+  Mixing them up silently breaks the per-app language list.
+-->
+<locale-config xmlns:android="http://schemas.android.com/apk/res/android">
+    <locale android:name="en" />
+    <locale android:name="es" />
+    <locale android:name="pt-BR" />
+    <locale android:name="fr" />
+    <locale android:name="de" />
+    <locale android:name="hi" />
+    <locale android:name="ja" />
+    <locale android:name="ko" />
+    <locale android:name="zh-CN" />
+</locale-config>

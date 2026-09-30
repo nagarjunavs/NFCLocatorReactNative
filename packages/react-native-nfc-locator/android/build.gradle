@@ -1,0 +1,37 @@
+// Consumed as a subproject of the host app's root build, which supplies AGP and Kotlin.
+def safeExtGet(prop, fallback) {
+  rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+apply plugin: "com.android.library"
+if (project.extensions.findByName("kotlin") == null) {
+  apply plugin: "kotlin-android"
+}
+apply plugin: "com.facebook.react"
+
+android {
+  namespace "com.nfclocator.rn"
+  compileSdkVersion safeExtGet("compileSdkVersion", 36)
+
+  defaultConfig {
+    // Follows React Native's minimum SDK.
+    minSdkVersion safeExtGet("minSdkVersion", 24)
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_17
+    targetCompatibility JavaVersion.VERSION_17
+  }
+
+  sourceSets {
+    test.java.srcDirs += ["src/test/java"]
+  }
+}
+
+dependencies {
+  implementation "com.facebook.react:react-android"
+  // Fold-state detection (FoldingFeature) lives here, not in JS: RN hosts can't get it otherwise.
+  implementation "androidx.window:window:1.5.0"
+  implementation "androidx.window:window-java:1.5.0"
+  testImplementation "junit:junit:4.13.2"
+}
