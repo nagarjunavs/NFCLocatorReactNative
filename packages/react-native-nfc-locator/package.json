@@ -75,7 +75,7 @@
     "@react-native/typescript-config": "0.87.1",
     "@testing-library/react-native": "^14.0.1",
     "@types/jest": "^29.5.13",
-    "@types/node": "^22.20.4",
+    "@types/node": "^26.6.3",
     "@types/react": "^19.2.0",
     "eslint": "^8.19.0",
     "jest": "^29.6.3",
