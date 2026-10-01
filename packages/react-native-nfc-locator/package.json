@@ -1,6 +1,6 @@
 {
   "name": "react-native-nfc-locator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shows where a phone's NFC antenna is, with an explicit confidence level. TypeScript resolver chain, React Native UI and a TurboModule for platform signals.",
   "license": "MIT",
   "author": "Nagarjuna VS",

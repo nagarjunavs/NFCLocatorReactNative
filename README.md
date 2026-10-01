@@ -16,12 +16,12 @@ _To do: onboarding, home (EXACT and APPROXIMATE), guided sweep, phone picker, ta
 
 ## Repository layout
 
-| Path | Contents |
-|---|---|
+| Path                                                                     | Contents                                                                                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
 | [`packages/react-native-nfc-locator`](packages/react-native-nfc-locator) | The library: TypeScript resolver chain, React Native UI, and a TurboModule for platform signals. Install and usage are in its README. |
-| [`apps/tapsense`](apps/tapsense) | The TapSense sample app. |
-| [`docs/architecture.md`](docs/architecture.md) | How the library is put together. |
-| [`DECISIONS.md`](DECISIONS.md) | Design decisions and their trade-offs. |
+| [`apps/tapsense`](apps/tapsense)                                         | The TapSense sample app.                                                                                                              |
+| [`docs/architecture.md`](docs/architecture.md)                           | How the library is put together.                                                                                                      |
+| [`DECISIONS.md`](DECISIONS.md)                                           | Design decisions and their trade-offs.                                                                                                |
 
 ## Run the sample
 
@@ -58,7 +58,6 @@ Android minSdk 24 and iOS 15.1.
 
 ## Known limitations
 
-- The live tap test has not been run on physical devices.
 - iOS has no public API for the antenna position, so `EXACT` there only comes from a verified catalog
   entry.
 - The sample has no backend; the catalog is bundled plus a small local fake.

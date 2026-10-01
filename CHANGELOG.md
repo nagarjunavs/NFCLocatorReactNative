@@ -2,6 +2,13 @@
 
 Format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## 0.1.1 (2026-09-30)
+
+### Changed
+
+- Releases are published from GitHub Actions through npm trusted publishing, with provenance. No
+  library code changed.
+
 ## 0.1.0 (2026-09-30)
 
 ### Added

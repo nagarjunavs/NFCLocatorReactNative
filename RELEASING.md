@@ -5,7 +5,10 @@
 1. Run `npm run check:catalog && npm run typecheck && npm test`.
 2. Update `CHANGELOG.md` and bump the version in `packages/react-native-nfc-locator/package.json`.
 3. Tag `v<version>`. `.github/workflows/publish.yml` checks that the tag matches the package version,
-   runs the checks and publishes with npm provenance. It needs an `NPM_TOKEN` repository secret.
+   runs the checks and publishes with npm provenance. It authenticates through npm trusted publishing
+   (GitHub Actions OIDC), so no npm token is stored in the repository. The trusted publisher is
+   configured on npmjs.com for owner `nagarjunavs`, repo `NFCLocatorReactNative` and workflow
+   `publish.yml`.
 
 Check the tarball first with `npm pack --dry-run` in `packages/react-native-nfc-locator`.
 
